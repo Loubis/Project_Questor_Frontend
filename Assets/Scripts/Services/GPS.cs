@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class GPS : MonoBehaviour
 {
-
     public float lat;
     public float lng;
 
     public static GPS Instance { set; get; }
 
+    IEnumerator coroutine;
+
     private IEnumerator LocationService()
     {
+        coroutine = updateGPS();
+
         //unity docs code
         if (!Input.location.isEnabledByUser)
         {
@@ -34,10 +37,14 @@ public class GPS : MonoBehaviour
         {
             Debug.Log("Unable to determine Location");
             yield break;
+        } else 
+        {
+            //unity docs code end
+            lat = Input.location.lastData.latitude;
+            lng = Input.location.lastData.longitude;
+
+            StartCoroutine(coroutine);
         }
-        //unity docs code end
-        lat = Input.location.lastData.latitude;
-        lng = Input.location.lastData.longitude;
     }
 
     // Use this for initialization
@@ -48,9 +55,27 @@ public class GPS : MonoBehaviour
         StartCoroutine(LocationService());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator updateGPS()
     {
+        float UPDATE_TIME = 10f; // 10 seconds
+        WaitForSeconds updateTime = new WaitForSeconds(UPDATE_TIME);
 
+        while (true)
+        {
+            lat = Input.location.lastData.latitude;
+            lng = Input.location.lastData.longitude;
+            yield return updateTime;
+        }
+    }
+
+    void stopGPS()
+    {
+        Input.location.Stop();
+        StopCoroutine(coroutine);
+    }
+
+    void OnDisable()
+    {
+        stopGPS();
     }
 }
