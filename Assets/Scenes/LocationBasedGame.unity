@@ -2501,7 +2501,12 @@ Prefab:
     - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1,
         type: 2}
       propertyPath: _options.locationOptions.latitudeLongitude
-      value: 51.51, 7.44
+      value: 51.51389, 7.46528
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1,
+        type: 2}
+      propertyPath: _options.extentOptions.extentType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35ce2bb4caba9434db5e656796b632b1, type: 2}
