@@ -43,6 +43,6 @@ public class GoogleMapsAPI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(Map());
+        
     }
 }
