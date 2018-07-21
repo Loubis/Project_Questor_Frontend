@@ -2,56 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GPS : MonoBehaviour {
+public class GPS : MonoBehaviour
+{
 
-    public static GPS Instance { get; set; }
+    public float lat;
+    public float lng;
 
-    public float longitude;
-    public float latitude;
+    public static GPS Instance { set; get; }
 
-    private void Start() 
+    private IEnumerator LocationService()
     {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-        StartCoroutine(StartLocationService());
-    }
-    
-    IEnumerator StartLocationService()
-    {
-        /* Unity Docs https://docs.unity3d.com/ScriptReference/LocationService.Start.html START*/
-
-        // First, check if user has location service enabled
+        //unity docs code
         if (!Input.location.isEnabledByUser)
+        {
+            Debug.Log("User has not enabled GPS");
             yield break;
-
-        // Start service before querying location
+        }
         Input.location.Start();
-
-        // Wait until service initializes
         int maxWait = 20;
         while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
         {
             yield return new WaitForSeconds(1);
             maxWait--;
         }
-
-        // Service didn't initialize in 20 seconds
-        if (maxWait < 1)
+        if (maxWait <= 0)
         {
-            print("Timed out");
+            Debug.Log("Timed Out");
             yield break;
         }
-
-        // Connection has failed
         if (Input.location.status == LocationServiceStatus.Failed)
         {
-            print("Unable to determine device location");
+            Debug.Log("Unable to determine Location");
             yield break;
         }
-        /* Unity Docs END*/
-
-        this.longitude = Input.location.lastData.longitude;
-        this.latitude = Input.location.lastData.latitude;
+        //unity docs code end
+        lat = Input.location.lastData.latitude;
+        lng = Input.location.lastData.longitude;
     }
 
+    // Use this for initialization
+    void Start()
+    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        StartCoroutine(LocationService());
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

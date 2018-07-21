@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 129886440}
   - component: {fileID: 129886439}
   - component: {fileID: 129886441}
-  - component: {fileID: 129886442}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -138,7 +137,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 129886437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -193,26 +192,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf32f77ccac429a4fba6f3c85fc76dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lat: 51.514
-  lng: 7.468
+  latitude: 0
+  longitude: 0
   zoom: 14
   mapWidth: 1280
   mapHeight: 1280
   mapSelected: 0
   scale: 0
---- !u!114 &129886442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 129886437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca269cbf1bb7f524aa6b587017175eee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  longitude: 0
-  latitude: 0
 --- !u!1 &301866961
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +345,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MenuScene
+          m_StringArgument: Menu 3D
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -634,6 +620,7 @@ GameObject:
   - component: {fileID: 1861818265}
   - component: {fileID: 1861818264}
   - component: {fileID: 1861818263}
+  - component: {fileID: 1861818267}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -718,3 +705,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1861818267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1861818262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca269cbf1bb7f524aa6b587017175eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  longitude: 0
+  latitude: 0
