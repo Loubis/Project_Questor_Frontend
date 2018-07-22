@@ -20,6 +20,7 @@ public class StartMarkerController : MonoBehaviour {
             qm.latitude = startMarker.latitude;
             qm.longitude = startMarker.longitude;
             qm.startMarker = startMarker;
+            Debug.Log(startMarker.quests.First().startPosition);
             Text[] text = smObj.GetComponentsInChildren<Text>(true);
             text[2].text = startMarker.name;
             foreach (Quest quest in startMarker.quests)

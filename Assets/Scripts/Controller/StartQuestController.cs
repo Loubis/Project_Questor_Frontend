@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Controller
 {
@@ -10,8 +11,9 @@ namespace Controller
         public void startQuest()
         {
             GameObject qm = Instantiate(questMarkerPrefab);
-            qm.GetComponent<QuestMarkerModel>().questmarker =
-                GetComponent<StartmarkerModel>().startMarker.quests[0].startPosition;
+            //qm.GetComponent<QuestMarkerModel>().questmarker =
+            //    GetComponent<StartmarkerModel>().startMarker.quests.ToArray().First().startPosition;
+            //Debug.Log(GetComponent<StartmarkerModel>().startMarker.quests.First().startPosition);
         }
     }
 }
