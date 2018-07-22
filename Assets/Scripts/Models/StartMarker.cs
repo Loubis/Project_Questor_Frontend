@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class StartMarker{
@@ -6,7 +7,7 @@ public class StartMarker{
     public float longitude;
     public string name;
     public int id;
-    public Array quests;
+    public List<Quest> quests;
 
     public String getLatLong()
     {

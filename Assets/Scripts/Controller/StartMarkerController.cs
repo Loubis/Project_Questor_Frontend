@@ -16,11 +16,17 @@ public class StartMarkerController : MonoBehaviour {
             GameObject smObj = Instantiate(startMarkerPrefab);
             smObj.name = "StartMarker" + i;
             i++;
-            Questmarker qm = smObj.GetComponentInChildren<Questmarker>();
+            StartmarkerModel qm = smObj.GetComponentInChildren<StartmarkerModel>();
             qm.latitude = startMarker.latitude;
             qm.longitude = startMarker.longitude;
+            qm.startMarker = startMarker;
             Text[] text = smObj.GetComponentsInChildren<Text>(true);
             text[2].text = startMarker.name;
+            foreach (Quest quest in startMarker.quests)
+            {
+                text[2].text += "\n" + quest.setting;
+            }
+            
         }
     }
 

@@ -5,8 +5,9 @@ using Mapbox.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Questmarker : MonoBehaviour
+public class StartmarkerModel : MonoBehaviour
 {
+	public StartMarker startMarker;
 
     bool _isInitialized;
     public double longitude;
