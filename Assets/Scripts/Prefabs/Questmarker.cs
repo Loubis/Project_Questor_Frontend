@@ -14,18 +14,10 @@ public class Questmarker : MonoBehaviour
 
 	public GameObject questPopUp;
 
-    void Start()
-    {
-        LocationProviderFactory.Instance.mapManager.OnInitialized += () => _isInitialized = true;
-    }
-
     void LateUpdate()
     {
-        if (_isInitialized)
-        {
             var map = LocationProviderFactory.Instance.mapManager;
             transform.localPosition = map.GeoToWorldPosition(new Vector2d(longitude, latitude));
-        }
     }
     void OnMouseDown()
     {
